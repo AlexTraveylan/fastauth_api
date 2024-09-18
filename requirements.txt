@@ -1,0 +1,8 @@
+python-dotenv
+sqlmodel
+alembic
+fastapi[standard]
+pyjwt
+passlib
+resend
+uvicorn
