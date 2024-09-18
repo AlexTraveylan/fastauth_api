@@ -1,0 +1,2 @@
+class FastAuthError(Exception):
+    pass
