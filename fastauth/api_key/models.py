@@ -1,16 +1,13 @@
 from datetime import datetime, timezone
-from enum import Enum
 
 from sqlmodel import Field, SQLModel
 
-
-class PlanEnum(Enum, str):
-    FREE = "free"
-    BASIC = "basic"
-    PREMIUM = "premium"
+from fastauth.api_key.enums import PlanEnum
 
 
 class APIKey(SQLModel, table=True):
+    __tablename__ = "api_key"
+
     id: int | None = Field(default=None, primary_key=True)
     application_name: str = Field(max_length=255)
     plan: PlanEnum
