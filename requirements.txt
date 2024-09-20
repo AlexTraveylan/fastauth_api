@@ -6,3 +6,4 @@ pyjwt
 passlib
 resend
 uvicorn
+cryptography

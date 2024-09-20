@@ -1,13 +1,12 @@
-from functools import lru_cache
-
 from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    database_url: str
-    email: str
+    DATABASE_URL: str
+    AES_KEY: str
+    EMAIL: str
+    PRODUCTION: bool
+    DEBUG: bool
 
 
-@lru_cache()
-def get_settings() -> Settings:
-    return Settings()
+SETTINGS = Settings()
