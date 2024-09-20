@@ -68,6 +68,11 @@ def verify_password_reset_token(token: str) -> int | None:
 
 
 if __name__ == "__main__":
+    """
+    Execute this file to generate a new key and secret key
+    And put them in the .env file
+    """
+
     # Generate a key
     key = Fernet.generate_key()
     print("AES KEY:", key)
