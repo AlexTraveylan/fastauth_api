@@ -1,4 +1,4 @@
-python-dotenv
+pydantic_settings
 sqlmodel
 alembic
 fastapi[standard]
