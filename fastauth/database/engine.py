@@ -16,6 +16,6 @@ async def create_db_and_tables(engine: Annotated[Engine, Depends(get_engine)]):
 
 
 async def get_session(engine: Annotated[Engine, Depends(get_engine)]):
-    with Session(engine, autoflush=True) as session:
+    with Session(engine) as session:
         yield session
         session.commit()
