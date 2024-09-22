@@ -1,5 +1,7 @@
 from sqlmodel import Field, SqlModel
 
+from fastauth.database.repository import Repository
+
 
 class User(SqlModel, table=True):
     __tablename__ = "users"
@@ -8,3 +10,10 @@ class User(SqlModel, table=True):
     username: str = Field(max_length=255, unique=True)
     password: str = Field(max_length=255)
     api_key_id: int | None = Field(default=None, foreign_key="api_key.id", ondelete="CASCADE")
+
+
+class UserRepository(Repository[User]):
+    __model__ = User
+
+
+USER_REPOSITORY = UserRepository()
