@@ -7,7 +7,7 @@ from sqlmodel import Session, SQLModel, create_engine
 from fastauth.common.settings import SETTINGS
 
 
-async def get_engine():
+def get_engine():
     return create_engine(SETTINGS.DATABASE_URL)
 
 
