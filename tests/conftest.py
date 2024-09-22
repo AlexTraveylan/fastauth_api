@@ -16,7 +16,7 @@ def engine_fixture():
 
 @pytest.fixture(name="session")
 def session_fixture(engine):
-    with Session(engine) as session:
+    with Session(engine, autoflush=True) as session:
         yield session
 
 
