@@ -52,7 +52,7 @@ The application will be accessible at `http://localhost:8000`.
 After modifying your SQLModel models, create a new migration:
 
 ```bash
-alembic revision -m "Description of the migration"
+alembic revision --autogenerate -m "Description of the migration"
 ```
 
 Then apply the migration:
