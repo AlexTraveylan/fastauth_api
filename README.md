@@ -4,7 +4,7 @@ A micro-service auth api for all my projects
 
 ## Prerequisite
 
-- Python 3.12+
+- Python 3.10+
 - pip
 
 ## Installation
@@ -52,7 +52,7 @@ The application will be accessible at `http://localhost:8000`.
 After modifying your SQLModel models, create a new migration:
 
 ```bash
-alembic revision --autogenerate -m "Description of the migration"
+alembic revision -m "Description of the migration"
 ```
 
 Then apply the migration:

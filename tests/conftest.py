@@ -1,23 +1,26 @@
 import pytest
 from cryptography.fernet import Fernet
 from fastapi.testclient import TestClient
-from sqlmodel import Session, SQLModel, create_engine
+from sqlmodel import SQLModel, create_engine
 from sqlmodel.pool import StaticPool
 
-from fastauth.main import app
+from fastauth.__main__ import app
+from fastauth.database.engine import get_session
 
 
-@pytest.fixture(name="engine")
-def engine_fixture():
+@pytest.fixture
+def engine():
     engine = create_engine("sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool)
     SQLModel.metadata.create_all(engine)
+
     return engine
 
 
-@pytest.fixture(name="session")
+@pytest.fixture
 def session(engine):
-    with Session(engine) as session:
-        yield session
+    session = next(get_session(engine))
+    yield session
+    session.close()
 
 
 @pytest.fixture

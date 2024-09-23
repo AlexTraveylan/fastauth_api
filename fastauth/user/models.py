@@ -1,9 +1,9 @@
-from sqlmodel import Field, SqlModel
+from sqlmodel import Field, SQLModel
 
 from fastauth.database.repository import Repository
 
 
-class User(SqlModel, table=True):
+class User(SQLModel, table=True):
     __tablename__ = "users"
 
     id: int | None = Field(default=None, primary_key=True)

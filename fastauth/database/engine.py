@@ -1,6 +1,3 @@
-from typing import Annotated
-
-from fastapi import Depends
 from sqlalchemy import Engine
 from sqlmodel import Session, SQLModel, create_engine
 
@@ -11,11 +8,11 @@ def get_engine():
     return create_engine(SETTINGS.DATABASE_URL)
 
 
-async def create_db_and_tables(engine: Annotated[Engine, Depends(get_engine)]):
+def create_db_and_tables(engine: Engine):
     SQLModel.metadata.create_all(engine)
 
 
-async def get_session(engine: Annotated[Engine, Depends(get_engine)]):
+def get_session(engine: Engine):
     with Session(engine) as session:
         yield session
         session.commit()
