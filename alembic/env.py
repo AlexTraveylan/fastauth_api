@@ -10,10 +10,11 @@ from alembic import context
 config = context.config
 
 from fastauth.api_key.models import APIKey  # noqa: E402
+from fastauth.subscriptions.models import Subscription  # noqa: E402
 from fastauth.user.models import User  # noqa: E402
 from fastauth.user_email.models import UserEmail  # noqa: E402
 
-__models__ = APIKey, User, UserEmail
+__models__ = APIKey, User, UserEmail, Subscription
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
