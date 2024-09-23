@@ -4,8 +4,8 @@ from fastapi.testclient import TestClient
 from sqlmodel import SQLModel, create_engine
 from sqlmodel.pool import StaticPool
 
-from fastauth.__main__ import app
 from fastauth.database.engine import get_session
+from fastauth.main import app
 
 
 @pytest.fixture

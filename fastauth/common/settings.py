@@ -16,4 +16,3 @@ class Settings(BaseSettings):
 
 
 SETTINGS = Settings()
-pass

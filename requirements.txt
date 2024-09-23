@@ -3,6 +3,7 @@ sqlmodel
 alembic
 fastapi[standard]
 pyjwt
+psycopg2
 passlib
 resend
 uvicorn

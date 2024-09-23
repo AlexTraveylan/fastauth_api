@@ -31,15 +31,6 @@ target_metadata = SQLModel.metadata  # UPDATED
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
-# Register your models
-SQLModel.metadata.create_all(
-    bind=engine_from_config(
-        config.get_section(config.config_ini_section),
-        prefix="sqlalchemy.",
-        poolclass=pool.NullPool,
-    )
-)
-
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.

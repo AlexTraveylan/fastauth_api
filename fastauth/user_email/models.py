@@ -9,7 +9,7 @@ class UserEmail(SQLModel, table=True):
     __tablename__ = "user_email"
 
     id: int | None = Field(default=None, primary_key=True)
-    user_id: int = Field(foreign_key="users.id")
+    user_id: int = Field(foreign_key="users.id", ondelete="CASCADE")
     encoded_email: str
     token: str
     created_at: datetime | None = Field(default_factory=lambda: datetime.now(timezone.utc))
