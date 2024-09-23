@@ -9,12 +9,12 @@ from alembic import context
 # access to the values within the .ini file in use.
 config = context.config
 
-from fastauth.api_key.models import APIKey  # noqa: E402
+from fastauth.api_key.models import APIKey, Domain  # noqa: E402
 from fastauth.subscriptions.models import Subscription  # noqa: E402
 from fastauth.user.models import User  # noqa: E402
 from fastauth.user_email.models import UserEmail  # noqa: E402
 
-__models__ = APIKey, User, UserEmail, Subscription
+__models__ = APIKey, User, UserEmail, Subscription, Domain
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.

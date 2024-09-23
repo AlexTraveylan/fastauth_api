@@ -21,3 +21,19 @@ class APIKeyRepository(Repository[APIKey]):
 
 
 API_KEY_REPOSITORY = APIKeyRepository()
+
+
+class Domain(SQLModel, table=True):
+    __tablename__ = "domains"
+
+    id: int | None = Field(default=None, primary_key=True)
+    url: str = Field(max_length=255, unique=True)
+    created_at: datetime | None = Field(default_factory=lambda: datetime.now(timezone.utc))
+    api_key_id: int = Field(foreign_key="api_key.id", ondelete="CASCADE")
+
+
+class DomainRepository(Repository[Domain]):
+    __model__ = Domain
+
+
+DOMAIN_REPOSITORY = DomainRepository()
